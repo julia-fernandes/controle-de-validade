@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
@@ -22,10 +23,11 @@ public class Movimentacao {
     private TipoMovimentacao tipo;
 
     @Column(nullable = false)
-    private Integer quantidade;
+    private Integer quantidadeMovimentada;
 
     @Column(nullable = false)
-    private Date dataHora;
+    @CreationTimestamp
+    private LocalDateTime dataHora;
 
     @Column(length = 255)
     private String observacao;
